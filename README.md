@@ -1,26 +1,28 @@
 # Workplace Bible Study Mentor
 
-> An AI-powered Bible study plan generator designed for workplace Christian small groups. Produces deep, structured, and practically applicable study materials using the DUCA model.
+> An AI-powered Bible study plan generator designed for workplace Christian small groups and personal study. Produces deep, structured, and practically applicable study materials using the DUCA model.
 
 ## What It Does
 
-Give it a Bible passage -> Get a complete, ready-to-use 50-minute small group study plan.
+Give it a Bible passage → Get a complete, ready-to-use 50-minute small group study plan.
 
 The output includes:
-- **Group Handout** - Structured questions for every participant
-- **Facilitator's Guide** - Reference answers, discussion hooks, probing questions, and crowd-control strategies
+- **Group Handout** — Structured questions for group discussion or personal study
+- **Study Reference** — Answer directions, common pitfalls & corrections, deeper exploration questions, and application analysis (idol exposure, concrete actions, worst-case scenarios)
 
 It also works as an **instant spiritual counsel** mode for personal faith and workplace struggles.
 
 ## Why It's Different
 
-Most Bible study generators produce generic, surface-level questions. This one is specifically engineered for **workplace professionals** who face real ethical dilemmas - KPIs, office politics, layoffs, compliance conflicts.
+Most Bible study generators produce generic, surface-level questions. This one is specifically engineered for **workplace professionals** who face real ethical dilemmas — KPIs, office politics, layoffs, compliance conflicts.
 
 Key design principles:
-- **Three-expert cross-validation**: Every output is checked by a Shepherd (pastoral care), Scholar (hermeneutical rigor), and Elder (workplace realism)
-- **Anti-platitude guardrails**: The system actively rejects hollow spiritual cliches and fairy-tale endings
+- **Internal pre-computation**: Genre scan, core tension extraction, and risk assessment before generating any questions — ensuring genre-appropriate, theologically grounded output
+- **Three-expert cross-validation**: Every output is shaped by a Shepherd (pastoral care), Scholar (hermeneutical rigor), and Elder (workplace realism)
+- **DUCA with Goal + Principles + Anti-patterns**: Each stage has a defined goal, guiding principles, and explicit anti-patterns to prevent low-quality output
+- **Anti-platitude guardrails**: The system actively rejects hollow spiritual clichés and fairy-tale endings
 - **Concrete action focus**: Application questions demand specific talk tracks and decisions, not just "attitude adjustments"
-- **Worst-case scenario analysis**: Every application answer must address what happens when doing the right thing leads to worldly failure
+- **Dual-audience Study Reference**: Works equally well for facilitator preparation and individual self-study at home
 
 ## Installation
 
@@ -50,29 +52,32 @@ Key design principles:
 3. Copy the contents from `references/gemini-version.md` into the Instructions field
 4. Start chatting with a Bible passage
 
+> **Note:** The Gemini version (`references/gemini-version.md`) is based on v5 and has not yet been updated to reflect v8 changes. A Gemini-optimized v8 version is planned.
+
 ## Repository Structure
 
 ```
 workplace-bible-study-mentor/
-├── SKILL.md                            # Main skill file (required by Claude)
+├── SKILL.md                            # Main skill file (v8 — current)
 ├── README.md                           # This file
 ├── LICENSE                             # MIT License
 └── references/                         # Bundled resources & historical versions
-    ├── gemini-version.md               # Gemini Gems optimized prompt
+    ├── gemini-version.md               # Gemini Gems optimized prompt (v5-based)
     ├── skill7-test-cases.md            # 27 systematic test cases for QA
-    ├── skill7-output1.md               # Example output: Mark 2 (v7/current)
+    ├── skill7-output1.md               # Example output: Mark 2 (v7)
     ├── skill5-output1.md               # Example output: Mark 2 (v5)
     ├── skill6-output1.md               # Example output: Mark 2 (v6)
     ├── V5-V6-comparison.md             # Version comparison analysis
+    ├── SKILL-v5.md                     # Historical: v5 skill
     ├── SKILL-v6-experimental.md        # Historical: v6 experimental skill
-    └── SKILL-v7.md                     # Historical: v7 skill (pre-Claude-Skill)
+    └── SKILL-v7.md                     # Historical: v7 skill
 ```
 
 ### What Goes Where
 
 | File | Purpose | Used by |
 |------|---------|---------|
-| `SKILL.md` | Core skill instructions | Claude (auto-loaded) |
+| `SKILL.md` | Core skill instructions (v8) | Claude (auto-loaded) |
 | `README.md` | Human documentation | GitHub / developers |
 | `LICENSE` | Legal | GitHub / developers |
 | `references/gemini-version.md` | Cross-platform prompt | Gemini Gems users |
@@ -82,12 +87,12 @@ workplace-bible-study-mentor/
 
 ## The DUCA Model
 
-| Phase | Purpose | Question Count |
-|---|---|---|
-| **D**iscovery | Observe facts, reconstruct the scene | 2-3 |
-| **U**nderstanding | Dig into theological logic, challenge assumptions | 2 |
-| **C**orrelation | Cross-reference with other Scripture | 1-2 sets |
-| **A**pplication | Workplace scenario dilemmas with real stakes | 2 |
+| Phase | Goal | Principles | Question Count |
+|---|---|---|---|
+| **D**iscovery | "I never noticed that before" — see details others skip | Genre-specific question styles (narrative → scene reconstruction; epistle → logical flow mapping; poetry → imagery unpacking) | 2-3 |
+| **U**nderstanding | Break habitual thinking — challenge default interpretations | Must touch theological anchors: human condition (idols/fears) and/or God's character (grace/sovereignty) | 2 |
+| **C**orrelation | Not an island — connect to the larger biblical narrative | Theological guardrail against moralism, prosperity distortion, decontextualization | 1-2 sets |
+| **A**pplication | Business-school-grade ethical dilemmas grounded in Scripture | Concise scenarios (2-4 sentences), specific roles, genuine decisional tension | 2 |
 
 ## Example Usage
 
@@ -97,26 +102,31 @@ Mark chapter 2
 ```
 
 Output includes:
-- Logic restructuring with core theme and workplace entry point
-- 3 Discovery questions with facilitator notes
-- 2 Understanding questions with theological depth
-- 2 Cross-reference sets
-- 2 Workplace Application scenarios with:
-  - Idol Exposure (what are you really afraid of losing?)
-  - Concrete Action (specific talk tracks for tomorrow)
-  - Worst-Case Scenario (when doing right leads to worldly failure)
+- Core theme and workplace entry point
+- 3 Discovery questions with genre-appropriate observation prompts
+- 2 Understanding questions with embedded historical/linguistic context
+- 2 Cross-reference sets revealing biblical narrative patterns
+- 2 Workplace Application scenarios (concise, sharp)
+- Study Reference for each question:
+  - Answer Direction (integrated three-expert analysis)
+  - Common Pitfalls & Corrections (2-3 specific misreadings with redirections)
+  - Deeper Exploration (progressive follow-up questions)
+  - For Application: Idol Exposure (multi-layer) + Concrete Action (exact talk tracks) + Worst-Case Scenario (no fairy-tale endings)
 
-See `references/skill7-output1.md` for a complete example output.
+See `references/skill7-output1.md` for a complete example output (v7 format — v8 example coming soon).
 
 ## Version History
 
-| Version | Changes |
+| Version | Key Changes |
 |---|---|
 | v1 | Basic DUCA framework + three-expert setup |
 | v2 | XML structure + routing mechanism + Application constraints + self-check |
 | v3 | Gemini adaptation + anti-false-consensus + language anchoring |
 | v4 | Claude Skill format + Expert "teeth" upgrade + 3-dimension analysis (Idol/Action/Worst-case) + anti-fairy-tale self-check |
-| **v5** | **Current production version (SKILL.md) — Claude Skill standard format, kebab-case naming, BOM-free UTF-8, single-line YAML description** |
+| v5 | Claude Skill standard format, kebab-case naming, BOM-free UTF-8, single-line YAML description |
+| v6 | Experimental: goal-oriented DUCA definitions, "business school case" quality benchmark, natural expert integration |
+| v7 | Merged v5 stability + v6 creativity: explicit tension labeling, multi-layer idol exposure, genre-adaptive D questions, "original audience vs modern reader" U guidance |
+| **v8** | **Current. Three key upgrades: (1) DUCA with Goal + Principles + Anti-patterns for higher-quality questions; (2) Study Reference replaces Facilitator's Guide — works for self-study and group leading; (3) Concise Application scenarios (2-4 sentences, no long stories). Also adds Internal Pre-computation (genre scan + core tension + risk assessment + council deliberation) as a chain-of-thought layer before output generation.** |
 
 See `references/V5-V6-comparison.md` for detailed version comparison analysis.
 
@@ -125,12 +135,14 @@ See `references/V5-V6-comparison.md` for detailed version comparison analysis.
 The `references/skill7-test-cases.md` file contains 27 systematic test cases covering:
 - Routing & basic behavior (TC-01 to TC-04)
 - Track A structural completeness (TC-05 to TC-09)
-- Facilitator guide quality (TC-10 to TC-15)
+- Study Reference quality (TC-10 to TC-15)
 - Guardrails & constraints (TC-16 to TC-19)
 - Three-expert system (TC-20)
 - Silent self-check (TC-21)
 - Cross-version comparison (TC-22 to TC-23)
 - Edge cases & stability (TC-24 to TC-27)
+
+> **Note:** Test cases were written for v7 and may need updates to reflect v8's Study Reference structure (replacing Facilitator's Guide references).
 
 ## License
 
@@ -142,4 +154,4 @@ Issues and PRs are welcome. If you have used this skill to generate study plans 
 
 ---
 
-> *"Mark chapter 2 tells us: Jesus did not come to patch your old system - He came to establish an entirely new order."*
+> *"Mark chapter 2 tells us: Jesus did not come to patch your old system — He came to establish an entirely new order."*
