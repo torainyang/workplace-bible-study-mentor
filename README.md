@@ -26,40 +26,59 @@ Key design principles:
 
 ### Claude (Recommended)
 
-**Option A: Claude.ai Skill Upload**
+**Option A: Claude Code**
+1. Clone this repository (or download ZIP)
+2. Copy the entire `workplace-bible-study-mentor/` folder into `.claude/skills/` in your project
+3. The skill will be automatically available
+
+**Option B: Claude.ai Skill Upload**
 1. Download or clone this repository
-2. ZIP the `workplace-bible-study-mentor/` folder (the inner one containing `SKILL.md`)
+2. ZIP the entire `workplace-bible-study-mentor/` folder
 3. Go to Claude.ai > Settings > Capabilities > Skills
 4. Click "Upload skill" and select the ZIP file
 5. Start chatting with a Bible passage (e.g., "Mark 2")
 
-**Option B: Claude Code**
-1. Place the `workplace-bible-study-mentor/` folder (the inner one) under `.claude/skills/` in your project
-2. The skill will be automatically available
-
 **Option C: Claude Projects**
 1. Go to [Claude Projects](https://claude.ai)
 2. Create a new Project
-3. Copy the contents of `workplace-bible-study-mentor/SKILL.md` (everything after the YAML frontmatter `---`) into the System Prompt field
+3. Copy the contents of `SKILL.md` (everything after the YAML frontmatter `---`) into the System Prompt field
 
 ### Gemini
 
 1. Go to [Gemini Gems](https://gemini.google.com)
 2. Create a new Gem
-3. Copy the contents from `workplace-bible-study-mentor/references/gemini-version.md` into the Instructions field
+3. Copy the contents from `references/gemini-version.md` into the Instructions field
 4. Start chatting with a Bible passage
 
 ## Repository Structure
 
 ```
 workplace-bible-study-mentor/
-|-- README.md                                    # This file (for humans)
-|-- LICENSE                                      # MIT License
-|-- workplace-bible-study-mentor/                # The Skill folder (for Claude)
-    |-- SKILL.md                                 # Main skill file (required)
-    |-- references/
-        |-- gemini-version.md                    # Gemini-optimized prompt
+├── SKILL.md                            # Main skill file (required by Claude)
+├── README.md                           # This file
+├── LICENSE                             # MIT License
+└── references/                         # Bundled resources & historical versions
+    ├── gemini-version.md               # Gemini Gems optimized prompt
+    ├── skill7-test-cases.md            # 27 systematic test cases for QA
+    ├── skill7-output1.md               # Example output: Mark 2 (v7/current)
+    ├── skill5-output1.md               # Example output: Mark 2 (v5)
+    ├── skill6-output1.md               # Example output: Mark 2 (v6)
+    ├── V5-V6-comparison.md             # Version comparison analysis
+    ├── SKILL-v6-experimental.md        # Historical: v6 experimental skill
+    └── SKILL-v7.md                     # Historical: v7 skill (pre-Claude-Skill)
 ```
+
+### What Goes Where
+
+| File | Purpose | Used by |
+|------|---------|---------|
+| `SKILL.md` | Core skill instructions | Claude (auto-loaded) |
+| `README.md` | Human documentation | GitHub / developers |
+| `LICENSE` | Legal | GitHub / developers |
+| `references/gemini-version.md` | Cross-platform prompt | Gemini Gems users |
+| `references/skill7-test-cases.md` | Quality assurance | Developers / testers |
+| `references/skill*-output*.md` | Example outputs | Reference / comparison |
+| `references/SKILL-v*.md` | Version history | Archive |
 
 ## The DUCA Model
 
@@ -87,6 +106,8 @@ Output includes:
   - Concrete Action (specific talk tracks for tomorrow)
   - Worst-Case Scenario (when doing right leads to worldly failure)
 
+See `references/skill7-output1.md` for a complete example output.
+
 ## Version History
 
 | Version | Changes |
@@ -94,7 +115,22 @@ Output includes:
 | v1 | Basic DUCA framework + three-expert setup |
 | v2 | XML structure + routing mechanism + Application constraints + self-check |
 | v3 | Gemini adaptation + anti-false-consensus + language anchoring |
-| **v4** | **Claude Skill format + Expert "teeth" upgrade + 3-dimension analysis (Idol/Action/Worst-case) + anti-fairy-tale self-check** |
+| v4 | Claude Skill format + Expert "teeth" upgrade + 3-dimension analysis (Idol/Action/Worst-case) + anti-fairy-tale self-check |
+| **v5** | **Current production version (SKILL.md) — Claude Skill standard format, kebab-case naming, BOM-free UTF-8, single-line YAML description** |
+
+See `references/V5-V6-comparison.md` for detailed version comparison analysis.
+
+## Testing
+
+The `references/skill7-test-cases.md` file contains 27 systematic test cases covering:
+- Routing & basic behavior (TC-01 to TC-04)
+- Track A structural completeness (TC-05 to TC-09)
+- Facilitator guide quality (TC-10 to TC-15)
+- Guardrails & constraints (TC-16 to TC-19)
+- Three-expert system (TC-20)
+- Silent self-check (TC-21)
+- Cross-version comparison (TC-22 to TC-23)
+- Edge cases & stability (TC-24 to TC-27)
 
 ## License
 
