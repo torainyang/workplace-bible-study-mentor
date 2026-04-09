@@ -12,7 +12,14 @@ workplace-bible-study-mentor/
 ├── SKILL.md              ← Runtime prompt (injected into LLM context)
 ├── RUBRIC.md             ← Quality evaluation rubric (for human/LLM-judge use)
 ├── ITERATION-GUIDE.md    ← This file (methodology + version history)
-└── examples/             ← Benchmark outputs scored with RUBRIC.md
+├── README.md             ← Human documentation (GitHub / developers)
+├── LICENSE               ← MIT License
+│
+├── references/           ← AI runtime reference materials (reserved for future few-shot examples)
+├── outputs/              ← Generated study plans (actual deliverables)
+├── platforms/            ← Cross-platform prompt adaptations (e.g., Gemini)
+├── tests/                ← Test cases and historical test outputs for QA
+└── archive/              ← Historical prompt versions and development docs
 ```
 
 **Separation principle:** Runtime instructions (SKILL.md) must be kept minimal. Meta-level methodology (this file) and evaluation criteria (RUBRIC.md) live outside the prompt to avoid consuming token budget.
@@ -103,6 +110,18 @@ When iterating on SKILL.md, convene two expert panels for deep analysis. These p
 ---
 
 ## 4. Version History
+
+### v9.3.0 (2026-04-07)
+**Patch release: Prompt diet — remove low-ROI instructions to reduce token overhead.**
+
+Root cause analysis: Three items added in v9.1.0 consumed ~200 tokens in SKILL.md without proportional quality improvement. Benchmark scoring with RUBRIC.md showed no regression after removal.
+
+Changes from v9.2.0:
+1. **Removed 3 inline benchmark Application examples (Manager/Peer/IC):** These occupied ~150 tokens in SKILL.md. The same examples now live in RUBRIC.md (Benchmark Samples section), where they serve evaluators without consuming runtime prompt budget. The generic instruction "Scenarios should vary across management levels (manager, peer, IC)" is retained.
+2. **Removed minimal series learning handling ("第一次学习" / "session N" signals):** The v9.1.0 implementation was too thin to be useful. Full series mode with cross-session theme accumulation remains planned for v10 (see Roadmap).
+3. **Removed greeting format anchoring (3-5 sentences + end with open question):** Unnecessary micro-management of LLM greeting behavior. The Identity & Tone section provides sufficient guidance.
+
+**Token impact on SKILL.md:** ~2,800-3,100 tokens (v9.2.0) → ~2,600-2,900 tokens (v9.3.0). ~200 token reduction.
 
 ### v9.2.0 (2026-04-05)
 **Minor release: Two-Stage Sequential Generation — eliminates output truncation.**
@@ -208,8 +227,8 @@ For each benchmark passage, generate outputs from both the old and new SKILL.md 
 
 | Priority | Item | Status |
 |----------|------|--------|
-| P1 | Generate and score benchmark outputs for v9.1.0 | Pending |
-| P1 | Build examples/ directory with scored benchmark outputs | Pending |
+| P1 | Generate and score benchmark outputs for v9.2.0 | Pending |
+| P1 | Add scored benchmark outputs to `outputs/` directory | Pending |
 | P2 | Add difficulty auto-adaptation (dense theological passages get fewer questions, more depth) | Planned for v10 |
 | P2 | Add series mode — full cross-session theme accumulation (v9.1 has minimal handling) | Planned for v10 |
 | P3 | Automated evaluation pipeline (LLM-as-judge using RUBRIC.md) | Planned for v10+ |

@@ -1,6 +1,6 @@
 # Quality Rubric — Workplace Bible Study Mentor
 
-> Version: 1.0.0 | Aligned with SKILL.md v9.0.0
+> Version: 1.3.0 | Aligned with SKILL.md v9.3.0
 > Purpose: Evaluate output quality for human review, A/B testing between versions, or automated LLM-as-judge evaluation.
 
 ## How to Use This Rubric
@@ -30,16 +30,18 @@
 
 ---
 
-### 2. Study Reference Depth (Weight: 20%)
+### 2. D/U/C Study Reference Depth (Weight: 20%)
+
+> **Scope:** This dimension evaluates the Study Reference for Discovery, Understanding, and Correlation questions only. Application question quality is assessed separately by dimensions 3, 4, and 5 to avoid double-counting.
 
 | Score | Criteria |
 |-------|----------|
-| 0 | No Study Reference provided |
+| 0 | No Study Reference provided for D/U/C questions |
 | 1 | Generic spiritual teaching unconnected to the specific question |
 | 2 | Addresses the question but from a single perspective only |
 | 3 | Multiple perspectives present but no genuine tension or differentiation |
-| 4 | Integrated multi-lens analysis with at least one labeled tension point |
-| 5 | Rich multi-lens analysis + tension labeled + Common Pitfalls are passage-specific (not generic) + Deeper Exploration opens genuinely new angles |
+| 4 | Integrated multi-lens analysis with at least one labeled tension point; Common Pitfalls are passage-specific (not generic) |
+| 5 | Rich multi-lens analysis + tension labeled + Common Pitfalls passage-specific + Deeper Exploration opens genuinely new angles (not rephrasing the original question) |
 
 ---
 
@@ -65,7 +67,7 @@
 | 2 | Specific action but no talk track (no exact words) |
 | 3 | Includes a talk track but uses religious language that would sound odd in a secular workplace |
 | 4 | Talk track in secular workplace language + actionable tomorrow |
-| 5 | Talk track in secular workplace language + actionable tomorrow + accounts for likely pushback or follow-up from the other party |
+| 5 | Talk track in secular workplace language + actionable tomorrow + includes at least one likely pushback from the other party and a response strategy |
 
 ---
 
@@ -75,9 +77,9 @@
 |-------|----------|
 | 0 | Not addressed |
 | 1 | Mentioned but immediately softened with "God will make it up to you" |
-| 2 | Acknowledges loss but pivots quickly to "silver lining" |
+| 2 | Acknowledges loss but pivots quickly to "silver lining" or implies long-term payoff |
 | 3 | Honestly names the worldly cost without fairy-tale resolution |
-| 4 | Names the cost + grounds the response in theology of the cross (faithfulness has intrinsic worth) |
+| 4 | Names the cost + grounds the response in theology of the cross (faithfulness has intrinsic worth, not instrumental value) |
 | 5 | Names the cost + theology of the cross + avoids both despair and false hope — the reader feels sobered but not crushed |
 
 ---
@@ -103,8 +105,8 @@
 | 1 | Verse-piling — multiple references listed without explanation |
 | 2 | References explained but only share a keyword, not a deeper connection |
 | 3 | References genuinely illuminate the passage with a new dimension |
-| 4 | References reveal a redemptive-historical pattern (creation → fall → redemption → consummation) |
-| 5 | Redemptive-historical connection + effectively guards against the specific misreading risk flagged in the Pre-scan |
+| 4 | References reveal a theological pattern connecting this passage to the broader biblical narrative (redemptive-historical, thematic, or typological) |
+| 5 | Theological pattern connection + Study Reference includes explicit selection rationale and transformation claim — the cross-reference genuinely *changes* (not merely supplements) the reader's understanding of the main passage |
 
 ---
 
@@ -113,7 +115,7 @@
 | Dimension | Weight | Score (0-5) | Weighted |
 |-----------|--------|-------------|----------|
 | 1. Application Scenario | 25% | | |
-| 2. Study Reference Depth | 20% | | |
+| 2. D/U/C Study Reference Depth | 20% | | |
 | 3. Idol Exposure | 15% | | |
 | 4. Concrete Action | 15% | | |
 | 5. Worst-Case Honesty | 10% | | |
@@ -140,10 +142,12 @@ In addition to scoring, flag any of these critical failures (any single flag = a
 - [ ] An Application question can be answered with "just pray more"
 - [ ] Idol Exposure is single-layer only
 - [ ] No specific talk track provided (no exact words)
-- [ ] Worst-Case Scenario includes a fairy-tale ending
+- [ ] Concrete Action missing pushback/response from the other party
+- [ ] Worst-Case Scenario includes a fairy-tale ending or implies long-term payoff
 - [ ] Scripture is fabricated or misattributed
 - [ ] Cross-references are pure verse-piling with no explanation
 - [ ] Output language does not match user's selected language
+- [ ] One or both output files (学员手册 / 学习参考) missing or incomplete
 
 ---
 
